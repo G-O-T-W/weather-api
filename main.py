@@ -23,7 +23,7 @@ def get_temperature(station, date):
 @app.route("/api/v1/<station>/")
 def get_sta_data(station):
     filename = "data-small/TG_STAID" + str(station).zfill(6) + ".txt"
-    df =  pd.read_csv(filename, skiprows=20, parse_dates=['    DATE']).head(100)
+    df =  pd.read_csv(filename, skiprows=20, parse_dates=['    DATE'])
     result = df.to_dict(orient="records")
     return result
 
